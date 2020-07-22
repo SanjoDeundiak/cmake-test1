@@ -1,13 +1,11 @@
 #ifndef OCKAM_LOG_H
 #define OCKAM_LOG_H
 
-#ifdef OCKAM_CUSTOM_LOG_FUNCTION
-    #define LOG_FUNCTION(str) OCKAM_CUSTOM_LOG_FUNCTION(str)
+#if OCKAM_CUSTOM_LOG_FUNCTION
+void set_log_function(void (*log_function)(const char* str));
 #else
-    #define LOG_FUNCTION(str) ockam_log_printf(str)
-#endif
-
 void ockam_log_printf(const char* str);
+#endif
 
 #if OCKAM_DISABLE_LOG
 #define OCKAM_LOG_ENABLED 0
