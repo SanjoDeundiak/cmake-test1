@@ -1,10 +1,10 @@
 #include <stdlib.h>
 #include <assert.h>
-#include "memory_stdlib.h"
-#include "interface/memory.h"
-#include "interface/private/memory_private.h"
-#include "private/memory_stdlib_private.h"
-#include "memory_stdlib_impl.h"
+#include <ockam/memory/stdlib/memory_stdlib.h>
+#include <ockam/memory/interface/memory.h>
+#include <ockam/memory/interface/private/memory_private.h>
+#include <ockam/memory/stdlib/private/memory_stdlib_private.h>
+#include <ockam/memory/stdlib/memory_stdlib_impl.h>
 
 static ockam_memory_dispatch_table_t dispatch = {
         (void (*)(void *)) ockam_memory_stdlib_deinit,

@@ -12,7 +12,7 @@ target_sources(ockam_memory_stdlib
 
 target_include_directories(ockam_memory_stdlib
     PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include/ockam/memory/stdlib>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
 target_link_libraries(ockam_memory_stdlib

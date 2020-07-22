@@ -1,8 +1,8 @@
 // This is implementation
 
 #include <assert.h>
-#include "interface/memory.h"
-#include "interface/private/memory_private.h"
+#include <ockam/memory/interface/memory.h>
+#include <ockam/memory/interface/private/memory_private.h>
 
 void ockam_memory_deinit(ockam_memory_t* memory)
 {

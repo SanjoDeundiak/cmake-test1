@@ -1,6 +1,6 @@
 #include <assert.h>
 #include <stdlib.h>
-#include "private/memory_stdlib_private.h"
+#include <ockam/memory/stdlib/private/memory_stdlib_private.h>
 #include "memory_alloc_helper.h"
 
 int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
