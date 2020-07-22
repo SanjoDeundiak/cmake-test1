@@ -17,7 +17,8 @@ target_include_directories(ockam_memory_stdlib
 
 target_link_libraries(ockam_memory_stdlib
     PUBLIC
-        ockam_memory)
+        ockam_memory
+        ockam_log)
 
 install(TARGETS ockam_memory_stdlib)
 

@@ -1,6 +1,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include <ockam/memory/stdlib/private/memory_stdlib_private.h>
+#include <ockam/log/log.h>
 #include "memory_alloc_helper.h"
 
 int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
@@ -13,6 +14,8 @@ int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
 
 int ockam_memory_stdlib_init(ockam_memory_stdlib_t* memory) {
     assert(NULL != memory);
+
+    ockam_log("This is ockam memory stdlib init");
 
     memory->foo = 3;
     memory->bar = 5;
