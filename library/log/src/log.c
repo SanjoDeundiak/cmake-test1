@@ -2,7 +2,7 @@
 
 #if OCKAM_CUSTOM_LOG_FUNCTION
 void (*ockam_log_function)(const char* str);
-void set_log_function(void (*log_function)(const char* str)) {
+void ockam_set_log_function(void (*log_function)(const char* str)) {
     ockam_log_function = log_function;
 }
 #else
