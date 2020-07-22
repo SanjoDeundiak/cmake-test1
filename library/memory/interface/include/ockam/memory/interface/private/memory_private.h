@@ -6,14 +6,15 @@
 #include "memory.h"
 
 typedef struct {
-    int (*deinit)(ockam_memory_t* memory);
+    void (*delete)(void* ctx);
+    void (*deinit)(void* ctx);
 
-    int (*alloc_zeroed)(ockam_memory_t* memory, void** buffer, size_t buffer_size);
+    int (*alloc_zeroed)(void* ctx, void** buffer, size_t buffer_size);
 } ockam_memory_dispatch_table_t;
 
 struct ockam_memory_t {
     ockam_memory_dispatch_table_t* dispatch;
-    void*                          context;
+    void*                          ctx;
 };
 
 #endif //TEST1_MEMORY_PRIVATE_H

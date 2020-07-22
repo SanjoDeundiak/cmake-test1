@@ -14,4 +14,12 @@ target_link_libraries(ockam_vault
     PUBLIC
         ockam_memory)
 
+message(STATUS "Cmake: ${CMAKE_INSTALL_LIBDIR}")
+
 install(TARGETS ockam_vault)
+
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/ockam
+        DESTINATION include
+        FILES_MATCHING PATTERN "*.h")
+
+# TODO: Add cmake config installation

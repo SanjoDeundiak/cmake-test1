@@ -7,6 +7,6 @@
 
 #include "memory.h"
 
-int ockam_memory_init_stdlib(ockam_memory_t** memory);
+int ockam_memory_new_with_stdlib(ockam_memory_t** memory);
 
 #endif //TEST1_MEMORY_STDLIB_IMPL_H

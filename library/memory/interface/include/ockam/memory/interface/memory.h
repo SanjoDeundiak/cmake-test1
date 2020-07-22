@@ -7,7 +7,7 @@
 
 typedef struct ockam_memory_t ockam_memory_t;
 
-int ockam_memory_deinit(ockam_memory_t* memory);
+void ockam_memory_deinit(ockam_memory_t* memory);
 int ockam_memory_alloc_zeroed(ockam_memory_t* memory, void** buffer, size_t buffer_size);
 // Other functions go here
 
