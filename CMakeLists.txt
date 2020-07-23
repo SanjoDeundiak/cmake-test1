@@ -5,6 +5,7 @@ project(ockam VERSION 0.0.1 LANGUAGES C)
 add_subdirectory(library/memory)
 add_subdirectory(library/vault)
 add_subdirectory(library/log)
+add_subdirectory(library/error)
 
 option(ENABLE_TESTING "" ON)
 

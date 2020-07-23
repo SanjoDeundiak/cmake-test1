@@ -3,8 +3,8 @@
 //
 
 #include <stdio.h>
-#include "memory.h"
-#include <ockam/vault//vault.h>
+#include <ockam/memory/interface/memory.h>
+#include <ockam/vault/vault.h>
 
 int dummy_vault_function(void) {
     printf("%s\n", "Hello, vault");

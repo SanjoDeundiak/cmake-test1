@@ -12,7 +12,10 @@ target_include_directories(ockam_vault
 
 target_link_libraries(ockam_vault
     PUBLIC
-        ockam_memory)
+        ockam_error
+        ockam_memory
+    PRIVATE
+        ockam_log)
 
 install(TARGETS ockam_vault)
 

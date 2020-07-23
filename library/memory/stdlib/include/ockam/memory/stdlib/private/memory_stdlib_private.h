@@ -1,5 +1,5 @@
-#ifndef TEST1_MEMORY_STDLIB_PRIVATE_H
-#define TEST1_MEMORY_STDLIB_PRIVATE_H
+#ifndef OCKAM_MEMORY_STDLIB_PRIVATE_H
+#define OCKAM_MEMORY_STDLIB_PRIVATE_H
 
 #include <ockam/memory/stdlib/memory_stdlib.h>
 
@@ -9,4 +9,4 @@ struct ockam_memory_stdlib_t {
     int bar;
 };
 
-#endif //TEST1_TEST1_MEMORY_STDLIB_PRIVATE_H
+#endif //OCKAM_MEMORY_STDLIB_PRIVATE_H

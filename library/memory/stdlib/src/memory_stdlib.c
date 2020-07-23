@@ -2,9 +2,10 @@
 #include <stdlib.h>
 #include <ockam/memory/stdlib/private/memory_stdlib_private.h>
 #include <ockam/log/log.h>
+#include "memory_stdlib_error.h"
 #include "memory_alloc_helper.h"
 
-int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
+ockam_error_t ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
     assert(NULL != memory);
 
     *memory = malloc(sizeof(ockam_memory_stdlib_t));
@@ -12,7 +13,7 @@ int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
     return ockam_memory_stdlib_init(*memory);
 }
 
-int ockam_memory_stdlib_init(ockam_memory_stdlib_t* memory) {
+ockam_error_t ockam_memory_stdlib_init(ockam_memory_stdlib_t* memory) {
     assert(NULL != memory);
 
     ockam_log_set_level(OCKAM_LOG_LEVEL_WARN);
@@ -26,7 +27,7 @@ int ockam_memory_stdlib_init(ockam_memory_stdlib_t* memory) {
     memory->foo = 3;
     memory->bar = 5;
 
-    return 0;
+    return ockam_memory_std_lib_error_none;
 }
 
 void ockam_memory_stdlib_deinit(ockam_memory_stdlib_t* memory) {
@@ -44,15 +45,18 @@ void ockam_memory_stdlib_delete(ockam_memory_stdlib_t** memory) {
     *memory = NULL;
 }
 
-int ockam_memory_stdlib_alloc_zeroed(ockam_memory_stdlib_t* memory, void** buffer, size_t buffer_size) {
+ockam_error_t ockam_memory_stdlib_alloc_zeroed(ockam_memory_stdlib_t* memory, void** buffer, size_t buffer_size) {
     assert(NULL != memory);
     assert(NULL != buffer);
     assert(0 != buffer_size);
 
+    ockam_error_t error = ockam_memory_std_lib_error_none;
+
     int test = memory->foo + memory->bar + help_alloc_memory();
 
     *buffer = malloc(buffer_size);
+    error.code = OCKAM_MEMORY_STDLIB_ERROR_OUT_OF_MEMORY;
     // TODO
 
-    return test;
+    return error;
 }

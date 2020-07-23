@@ -11,6 +11,10 @@ target_include_directories(ockam_memory
         $<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>
         $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
 
+target_link_libraries(ockam_memory
+    PUBLIC
+        ockam_error)
+
 install(TARGETS ockam_memory)
 
 install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/include/ockam
