@@ -1,19 +1,58 @@
 #include <ockam/log/log.h>
 
 #if OCKAM_CUSTOM_LOG_FUNCTION
-void (*ockam_log_function)(const char* str);
-void ockam_set_log_function(void (*log_function)(const char* str)) {
+static ockam_log_function_t ockam_log_function;
+void ockam_set_log_function(ockam_log_function_t log_function) {
     ockam_log_function = log_function;
 }
 #else
 #include <stdio.h>
-void ockam_log_printf(const char* str) {
-    printf("%s\n", str);
+#include <time.h>
+
+static const char *level_strings[] = {
+        "OCKAM_INFO",
+        "OCKAM_DEBUG",
+        "OCKAM_WARN",
+        "OCKAM_ERROR",
+        "OCKAM_FATAL",
+};
+
+static void ockam_log_printf(ockam_log_level_t level, const char *file, int line, const char *fmt, va_list args) {
+    time_t t = time(NULL);
+
+    const struct tm* local_time = localtime(&t);
+
+    char time_str[9];
+    strftime(time_str, sizeof(time_str), "%H:%M:%S", local_time);
+
+    fprintf(stdout, "%s %-11s %s:%d: ", time_str, level_strings[level], file, line);
+    vfprintf(stdout, fmt, args);
+    fprintf(stdout, "\n");
+
+    fflush(stdout);
 }
-void (*ockam_log_function)(const char* str) = ockam_log_printf;
-#define LOG_FUNCTION(str) ockam_log_printf(str)
+static ockam_log_function_t ockam_log_function = ockam_log_printf;
 #endif
 
-void ockam_log_print(const char* str) {
-    ockam_log_function(str);
+static ockam_log_level_t ockam_log_level = OCKAM_LOG_LEVEL_DEBUG;
+
+void ockam_log_set_level(ockam_log_level_t level) {
+    ockam_log_level = level;
+}
+
+ockam_log_level_t ockam_log_get_level() {
+    return ockam_log_level;
+}
+
+void ockam_log_log(ockam_log_level_t level, const char *file, int line, const char *fmt, ...) {
+    if (ockam_log_level > level) {
+        return;
+    }
+
+    if (NULL != ockam_log_function) {
+        va_list args;
+        va_start(args, fmt);
+        ockam_log_function(level, file, line, fmt, args);
+        va_end(args);
+    }
 }

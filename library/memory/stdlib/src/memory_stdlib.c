@@ -15,7 +15,13 @@ int ockam_memory_stdlib_new(ockam_memory_stdlib_t** memory) {
 int ockam_memory_stdlib_init(ockam_memory_stdlib_t* memory) {
     assert(NULL != memory);
 
-    ockam_log("This is ockam memory stdlib init");
+    ockam_log_set_level(OCKAM_LOG_LEVEL_WARN);
+
+    ockam_log_info("This is ockam memory stdlib init INFO");
+    ockam_log_debug("This is ockam memory stdlib init DEBUG");
+    ockam_log_warn("This is ockam memory stdlib init WARN");
+    ockam_log_error("This is ockam memory stdlib init ERROR");
+    ockam_log_fatal("This is ockam memory stdlib init FATAL");
 
     memory->foo = 3;
     memory->bar = 5;
