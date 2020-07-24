@@ -20,8 +20,8 @@ target_include_directories(ockam_memory_stdlib
 target_link_libraries(ockam_memory_stdlib
     PUBLIC
         ockam_error
-    PRIVATE
         ockam_memory
+    PRIVATE
         ockam_log)
 
 install(TARGETS ockam_memory_stdlib)

@@ -9,8 +9,7 @@
 #include <ockam/error/error.h>
 
 typedef enum ockam_memory_stdlib_error_t {
-    OCKAM_MEMORY_STDLIB_ERROR_NONE,
-    OCKAM_MEMORY_STDLIB_ERROR_OUT_OF_MEMORY,
+    OCKAM_MEMORY_STDLIB_ERROR_OUT_OF_MEMORY = 1,
 } ockam_memory_stdlib_error_t;
 
 extern const char* const OCKAM_MEMORY_STDLIB_ERROR_DOMAIN;
