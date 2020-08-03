@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include <ockam/log/log.h>
 
 #if OCKAM_CUSTOM_LOG_FUNCTION

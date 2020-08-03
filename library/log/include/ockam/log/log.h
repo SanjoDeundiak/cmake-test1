@@ -19,6 +19,8 @@ typedef enum {
 
 typedef void (*ockam_log_function_t)(ockam_log_level_t level, const char *file, int line, const char *fmt, va_list args);
 
+#define OCKAM_CUSTOM_LOG_FUNCTION 1
+
 #if OCKAM_CUSTOM_LOG_FUNCTION
 void ockam_set_log_function(ockam_log_function_t log_function);
 #endif

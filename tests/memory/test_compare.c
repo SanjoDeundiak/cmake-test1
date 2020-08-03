@@ -9,6 +9,10 @@ int main(void) {
     ockam_memory_t *memory;
     ockam_error_t error = ockam_memory_new_with_stdlib(&memory);
 
+    if (error.code != OCKAM_ERROR_NONE) {
+
+    }
+
     assert(error.code == OCKAM_ERROR_NONE);
     assert(error.domain == OCKAM_MEMORY_STDLIB_ERROR_DOMAIN);
 
