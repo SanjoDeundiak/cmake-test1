@@ -5,7 +5,7 @@
 #ifndef OCKAM_VAULT_DEFAULT_H
 #define OCKAM_VAULT_DEFAULT_H
 
-#include <ockam/vault/interface/vault.h>
+#include <stdint.h>
 #include <ockam/memory/interface/memory.h>
 
 typedef struct {
